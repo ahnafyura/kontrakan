@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Search } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { navItems } from "./nav-items";
 
@@ -11,7 +12,15 @@ export function MobileNav({ open, onNavigate }: { open: boolean; onNavigate: () 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-x-0 top-16 z-30 border-b border-outline-variant bg-surface-container p-4 lg:hidden">
+    <div className="fixed inset-x-0 top-14 z-30 border-b border-outline-variant bg-surface-container p-4 lg:hidden">
+      <div className="mb-3 flex items-center rounded-full border border-outline-variant bg-surface-container-high px-4 py-2">
+        <Search size={16} className="text-on-surface-variant" />
+        <input
+          type="text"
+          placeholder="Cari perangkat, kamar..."
+          className="ml-2 w-full border-none bg-transparent text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-0"
+        />
+      </div>
       <nav className="space-y-1">
         {navItems.map((item) => {
           const active = pathname === item.href;

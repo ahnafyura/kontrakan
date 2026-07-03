@@ -3,6 +3,10 @@ import { ArrowRight, Layers, Cpu, Router, Wifi, DoorOpen, Cable } from "lucide-r
 import { rooms, routers, isp, roomsByFloor } from "@/data/network";
 import { StatTile } from "@/components/ui/stat-tile";
 import { Card } from "@/components/ui/card";
+import { PowerOverviewCard } from "@/components/dashboard/power-overview-card";
+import { RoomPowerGrid } from "@/components/dashboard/room-power-grid";
+import { SharedLoadsCard } from "@/components/dashboard/shared-loads-card";
+import { AlertsFeedCard } from "@/components/dashboard/alerts-feed-card";
 
 export default function DashboardPage() {
   const lanDropCount = rooms.filter((r) => r.lanDrop).length;
@@ -24,6 +28,10 @@ export default function DashboardPage() {
             {routers.length} router online · {rooms.length} kamar terpetakan
           </span>
         </div>
+      </div>
+
+      <div className="mb-6">
+        <PowerOverviewCard />
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -72,6 +80,15 @@ export default function DashboardPage() {
         <StatTile icon={Router} label="Router" value={String(routers.length)} accent="text-primary" />
         <StatTile icon={Cable} label="LAN Drop" value={String(lanDropCount)} accent="text-secondary" />
         <StatTile icon={Wifi} label="ISP" value={isp.provider} />
+      </div>
+
+      <div className="mt-6">
+        <RoomPowerGrid />
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <SharedLoadsCard />
+        <AlertsFeedCard />
       </div>
 
       <Card className="mt-6 p-6">
