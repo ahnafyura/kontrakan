@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FloorView } from "@/components/schematic/floor-view";
 import { McpHardwareSection } from "@/components/schematic/mcp-hardware-section";
+import { HardwareCostTable } from "@/components/schematic/hardware-cost-table";
 
 export const metadata: Metadata = {
   title: "Denah & Jaringan - Kontrakan Hub",
@@ -26,6 +27,10 @@ export default function FloorPlanPage() {
 
       <div className="mt-6">
         <McpHardwareSection />
+      </div>
+
+      <div className="mt-6">
+        <HardwareCostTable />
       </div>
     </div>
   );

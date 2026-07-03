@@ -3,17 +3,14 @@ import { Card, CardHeader } from "@/components/ui/card";
 import { MockDataBadge } from "@/components/ui/mock-data-badge";
 import { getPowerSummary } from "@/data/power";
 import { cn } from "@/lib/cn";
+import { formatRupiah } from "@/lib/format";
 
 export function PowerOverviewCard() {
   const summary = getPowerSummary();
   const percent = Math.min(100, Math.round((summary.totalWatts / summary.capacityWatts) * 100));
   const isWarning = summary.totalWatts >= summary.warningWatts;
 
-  const rupiah = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
-  }).format(summary.monthlyCostRp);
+  const rupiah = formatRupiah(summary.monthlyCostRp);
 
   return (
     <Card className="p-6">

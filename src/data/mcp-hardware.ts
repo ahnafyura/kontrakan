@@ -22,6 +22,10 @@ export interface HardwarePoint {
   connectivity: "wifi" | "lan";
   tier: HardwareTier;
   note?: string;
+  /** apa fungsinya di sistem MCP */
+  purpose: string;
+  /** estimasi harga satuan (Rp), harga pasar Indonesia — lihat planning.md */
+  priceRp: number;
 }
 
 // Every physical point needed for the arus-listrik-per-stop-kontak MCP source to work end to
@@ -40,6 +44,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 1,
     note: "Sonoff S60 atau setara, rating tinggi untuk beban AC",
+    purpose: "Monitor & kontrol daya AC — beban terbesar & termahal",
+    priceRp: 300000,
   },
   {
     id: "plug-outlet-lt1-kamar1",
@@ -51,6 +57,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 1,
     note: "Outlet non-AC di kamar yang sama",
+    purpose: "Monitor daya outlet non-AC di kamar",
+    priceRp: 180000,
   },
   {
     id: "plug-outlet-lt1-ahnaf",
@@ -62,6 +70,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 1,
     note: "Pasang di extension cord meja (lihat Setup Ahnaf)",
+    purpose: "Monitor total daya meja kerja (laptop, monitor, dll)",
+    priceRp: 180000,
   },
   {
     id: "plug-fridge",
@@ -71,6 +81,8 @@ export const hardwarePoints: HardwarePoint[] = [
     location: "Dapur / Area Bersama",
     connectivity: "wifi",
     tier: 1,
+    purpose: "Monitor daya kulkas bersama",
+    priceRp: 180000,
   },
   {
     id: "plug-dispenser",
@@ -80,6 +92,8 @@ export const hardwarePoints: HardwarePoint[] = [
     location: "Dapur / Area Bersama",
     connectivity: "wifi",
     tier: 1,
+    purpose: "Monitor daya dispenser",
+    priceRp: 180000,
   },
   {
     id: "relay-pump",
@@ -90,6 +104,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 2,
     note: "Sonoff POW R3 inline — cek dulu hardwired atau tidak saat survei",
+    purpose: "Monitor & kontrol pompa air (jika hardwired ke saklar)",
+    priceRp: 394000,
   },
   {
     id: "relay-corridor-light",
@@ -100,6 +116,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 2,
     note: "Inline ke saklar dinding — cek dulu hardwired atau tidak",
+    purpose: "Monitor & kontrol lampu koridor (jika hardwired ke saklar)",
+    priceRp: 394000,
   },
   {
     id: "plug-router-lt1",
@@ -110,6 +128,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 2,
     note: "Opsional — cukup on/off, tak perlu monitoring detail",
+    purpose: "On/off jarak jauh Router Lt.1 saat perlu restart",
+    priceRp: 100000,
   },
   {
     id: "hub",
@@ -120,6 +140,8 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "lan",
     tier: 3,
     note: "Raspberry Pi 4 atau PC bekas — kabel LAN langsung ke Router Lt.1, bukan WiFi",
+    purpose: "Pusat pengumpul & agregasi data semua smart plug/relay",
+    priceRp: 1500000,
   },
 
   // --- Lantai 2 ---
@@ -132,6 +154,8 @@ export const hardwarePoints: HardwarePoint[] = [
     roomId: "lt2-kamar-1",
     connectivity: "wifi",
     tier: 1,
+    purpose: "Monitor daya outlet kamar",
+    priceRp: 180000,
   },
   {
     id: "plug-outlet-lt2-kamar2",
@@ -142,6 +166,8 @@ export const hardwarePoints: HardwarePoint[] = [
     roomId: "lt2-kamar-2",
     connectivity: "wifi",
     tier: 1,
+    purpose: "Monitor daya outlet kamar",
+    priceRp: 180000,
   },
   {
     id: "plug-outlet-lt2-kamar3",
@@ -152,6 +178,8 @@ export const hardwarePoints: HardwarePoint[] = [
     roomId: "lt2-kamar-3",
     connectivity: "wifi",
     tier: 1,
+    purpose: "Monitor daya outlet kamar",
+    priceRp: 180000,
   },
   {
     id: "plug-router-lt2",
@@ -162,11 +190,17 @@ export const hardwarePoints: HardwarePoint[] = [
     connectivity: "wifi",
     tier: 2,
     note: "Opsional — cukup on/off, tak perlu monitoring detail",
+    purpose: "On/off jarak jauh Router Lt.2 saat perlu restart",
+    priceRp: 100000,
   },
 ];
 
 export function hardwareByFloor(floor: FloorId) {
   return hardwarePoints.filter((p) => p.floor === floor);
+}
+
+export function hardwareGrandTotalRp() {
+  return hardwarePoints.reduce((sum, p) => sum + p.priceRp, 0);
 }
 
 export const tierLabel: Record<HardwareTier, string> = {
