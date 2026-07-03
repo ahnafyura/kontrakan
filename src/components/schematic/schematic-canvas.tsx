@@ -14,6 +14,10 @@ import {
   DoorOpen,
   ArrowUpFromLine,
   ArrowDownFromLine,
+  BatteryCharging,
+  PlugZap,
+  Keyboard as KeyboardIcon,
+  MousePointer2,
   type LucideIcon,
 } from "lucide-react";
 import { cableClassName, cableTextClass } from "@/lib/cable";
@@ -32,6 +36,10 @@ const iconRegistry: Record<SchematicIcon, LucideIcon> = {
   room: DoorOpen,
   "riser-up": ArrowUpFromLine,
   "riser-down": ArrowDownFromLine,
+  stabilizer: BatteryCharging,
+  extension: PlugZap,
+  keyboard: KeyboardIcon,
+  mouse: MousePointer2,
 };
 
 function NodeBox({ node }: { node: SchematicNode }) {

@@ -3,6 +3,9 @@ import { Thermometer, Gauge, Timer, AlertTriangle } from "lucide-react";
 import { AhnafSchematicCard } from "@/components/rooms/ahnaf-schematic-card";
 import { TelemetryPanel } from "@/components/rooms/telemetry-panel";
 import { DeviceControls } from "@/components/rooms/device-controls";
+import { PowerBudgetCard } from "@/components/rooms/power-budget-card";
+import { StateMachineCard } from "@/components/rooms/state-machine-card";
+import { ShoppingChecklistCard } from "@/components/rooms/shopping-checklist-card";
 import { StatTile } from "@/components/ui/stat-tile";
 
 export const metadata: Metadata = {
@@ -21,8 +24,9 @@ export default function AhnafRoomPage() {
           <span className="text-xl font-normal text-on-surface-variant">/ Desktop Monitoring</span>
         </h1>
         <p className="mt-2 max-w-2xl text-on-surface-variant">
-          Pemetaan kabel meja kerja: LAN kabel dari router Lantai 1 ke dock, lalu dock membagi ke
-          monitor, laptop, dan perintilan kecil (flashdisk, mouse, keyboard).
+          Pemetaan kabel meja kerja: daya dari stop kontak → stabilizer → extension cord ke tiap
+          perangkat, dan data dari LAN router Lantai 1 &amp; HDMI langsung ke monitor, plus USB hub
+          untuk keyboard &amp; mouse.
         </p>
       </div>
 
@@ -40,6 +44,17 @@ export default function AhnafRoomPage() {
           <StatTile icon={Gauge} label="Bandwidth" value="940 Mbps" accent="text-primary" />
           <StatTile icon={Timer} label="Uptime" value="18h 4m" />
           <StatTile icon={AlertTriangle} label="Anomalies" value="0 Active" accent="text-secondary" />
+        </div>
+
+        <div className="lg:col-span-6">
+          <PowerBudgetCard />
+        </div>
+        <div className="lg:col-span-6">
+          <StateMachineCard />
+        </div>
+
+        <div className="lg:col-span-12">
+          <ShoppingChecklistCard />
         </div>
       </div>
     </div>

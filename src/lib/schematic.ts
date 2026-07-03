@@ -12,7 +12,11 @@ export type SchematicIcon =
   | "panel"
   | "room"
   | "riser-up"
-  | "riser-down";
+  | "riser-down"
+  | "stabilizer"
+  | "extension"
+  | "keyboard"
+  | "mouse";
 
 export interface SchematicNode {
   id: string;
