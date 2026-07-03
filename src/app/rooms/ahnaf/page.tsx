@@ -14,14 +14,14 @@ export default function AhnafRoomPage() {
     <div>
       <div className="mb-8">
         <span className="text-label-sm font-bold uppercase tracking-widest text-primary">
-          Room Details · Lantai 2
+          Room Details · Lantai 1
         </span>
         <h1 className="text-headline-lg-mobile text-on-surface md:text-headline-xl">
           Ahnaf Setup{" "}
           <span className="text-xl font-normal text-on-surface-variant">/ Desktop Monitoring</span>
         </h1>
         <p className="mt-2 max-w-2xl text-on-surface-variant">
-          Pemetaan kabel meja kerja: LAN kabel dari router Lantai 2 ke dock, lalu dock membagi ke
+          Pemetaan kabel meja kerja: LAN kabel dari router Lantai 1 ke dock, lalu dock membagi ke
           monitor, laptop, dan perintilan kecil (flashdisk, mouse, keyboard).
         </p>
       </div>

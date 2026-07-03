@@ -62,7 +62,7 @@ export default function DashboardPage() {
           </div>
           <h2 className="mt-4 text-lg font-bold text-on-surface">Setup Ahnaf</h2>
           <p className="mt-1 text-sm text-on-surface-variant">
-            Skema kabel monitor, laptop &amp; perintilan kecil di meja kerja Lantai 2
+            Skema kabel monitor, laptop &amp; perintilan kecil di meja kerja Lantai 1
           </p>
         </Link>
       </div>
@@ -81,7 +81,7 @@ export default function DashboardPage() {
             1 langganan {isp.provider} di {isp.ontLocation}, dibagi ke 2 router (satu per lantai) via
             backbone LAN.
           </li>
-          <li>Kabel LAN dari Router Lantai 2 ditarik khusus ke meja Ahnaf untuk koneksi wired laptop.</li>
+          <li>Kabel LAN dari Router Lantai 1 ditarik khusus ke meja Ahnaf untuk koneksi wired laptop.</li>
           <li>Jalur listrik rumah masih 1 meteran bersama (2700VA), belum dipisah per-kamar/MCB.</li>
         </ul>
       </Card>

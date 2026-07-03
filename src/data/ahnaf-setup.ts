@@ -9,7 +9,7 @@ export const schematicNodes: SchematicNode[] = [
   {
     id: "wall-lan",
     label: "LAN Wall Port",
-    sublabel: "Drop dari Router Lt.2",
+    sublabel: "Drop dari Router Lt.1",
     icon: "lan",
     x: 140,
     y: 80,
