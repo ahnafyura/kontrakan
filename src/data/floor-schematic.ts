@@ -103,8 +103,8 @@ export function floorSchematic(floor: FloorId): {
         to: k1.id,
         type: "lan",
         label: "WiFi",
-        path: "M 380 122 V 220 H 240 V 255",
-        labelAt: { x: 250, y: 208 },
+        path: "M 360 122 V 220 H 240 V 255",
+        labelAt: { x: 290, y: 208 },
       },
       {
         id: "e-router-k2",
@@ -112,8 +112,8 @@ export function floorSchematic(floor: FloorId): {
         to: k2.id,
         type: "lan",
         label: "WiFi + LAN kabel",
-        path: "M 460 122 V 220 H 560 V 255",
-        labelAt: { x: 566, y: 208 },
+        path: "M 430 122 V 220 H 560 V 255",
+        labelAt: { x: 495, y: 208 },
       },
       {
         id: "e-router-riser",
@@ -130,8 +130,8 @@ export function floorSchematic(floor: FloorId): {
         to: "router",
         type: "power",
         label: "Power",
-        path: "M 650 122 V 160 H 470 V 122",
-        labelAt: { x: 580, y: 152 },
+        path: "M 640 122 V 160 H 490 V 122",
+        labelAt: { x: 570, y: 152 },
       },
       {
         id: "e-panel-k1",
@@ -139,8 +139,8 @@ export function floorSchematic(floor: FloorId): {
         to: k1.id,
         type: "power",
         label: "Power",
-        path: "M 630 122 V 400 H 240 V 385",
-        labelAt: { x: 400, y: 412 },
+        path: "M 680 122 V 400 H 240 V 385",
+        labelAt: { x: 460, y: 412 },
       },
       {
         id: "e-panel-k2",
@@ -148,8 +148,8 @@ export function floorSchematic(floor: FloorId): {
         to: k2.id,
         type: "power",
         label: "Power",
-        path: "M 700 122 V 255",
-        labelAt: { x: 706, y: 190 },
+        path: "M 740 122 V 200 H 600 V 255",
+        labelAt: { x: 670, y: 188 },
       },
     ];
 
@@ -238,8 +238,8 @@ export function floorSchematic(floor: FloorId): {
       to: "router",
       type: "power",
       label: "Power",
-      path: "M 720 122 V 160 H 500 V 122",
-      labelAt: { x: 610, y: 152 },
+      path: "M 720 122 V 160 H 480 V 122",
+      labelAt: { x: 600, y: 152 },
     },
     {
       id: "e-panel-k1",
